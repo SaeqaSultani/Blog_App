@@ -31,7 +31,7 @@ RSpec.describe Comment, type: :model do
 
     post = Post.new(
       title: 'My first post',
-      text: 'Hello world!',
+      text: 'Hello world',
       comments_counter: 5,
       likes_counters: 8,
       author_id: user.id
@@ -41,7 +41,7 @@ RSpec.describe Comment, type: :model do
     comment = Comment.new(
       author_id: user.id,
       post_id: post.id,
-      text: 'This is my first post!'
+      text: 'This is my first post'
     )
     comment.save
 
