@@ -170,7 +170,7 @@ To run tests, run the following command:
 👤 **Author1**
 
 - GitHub: [SaeqaSultani](https://github.com/SaeqaSultani)
-- Twitter: [SaeqaSultani](https://twitter.com/twitterhandle)
+- Twitter: [SaeqaSultani](https://twitter.com/SaeqaSultani)
 - LinkedIn: [SaeqaSultani](https://www.linkedin.com/in/saeqa-sultani)
 
 
