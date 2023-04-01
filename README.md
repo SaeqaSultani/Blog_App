@@ -74,7 +74,7 @@ After you're finished please remove all the comments and instructions!
 <details>
   <summary>Framework</summary>
   <ul>
-    <li></li>
+    <li>Ruby on Rails</li>
   </ul>
 </details>
 

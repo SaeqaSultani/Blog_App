@@ -44,4 +44,5 @@ RSpec.describe Post, type: :model do
     subject.likes_counters = -2
     expect(subject).to_not be_valid
   end
+
 end
