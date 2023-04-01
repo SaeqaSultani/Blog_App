@@ -44,15 +44,15 @@ RSpec.describe Post, type: :model do
     subject.likes_counters = -2
     expect(subject).to_not be_valid
   end
-  
-  describe 'update_post_counter' do
-    it 'increments the author posts_counter by 1' do
+
+  describe 'post_counter' do
+    it 'increments the author posts_counter by 0' do
       user = User.create(name: 'User 1', posts_counter: 0)
       Post.create(title: 'Post 1', author_id: user, comments_counter: 0, likes_counters: 0)
       expect(user.posts_counter).to eq(0)
     end
   end
-  
+
   it 'Should return 0 posts' do
     Comment.create(post_id: subject, text: 'This is my first comment')
     Comment.create(post_id: subject, text: 'This is my second comment')
@@ -60,5 +60,4 @@ RSpec.describe Post, type: :model do
     Comment.create(post_id: subject, text: 'This is my forth comment')
     expect(subject.recent_comments.length).to eq 0
   end
-
 end
