@@ -18,7 +18,7 @@ RSpec.describe Like, type: :model do
   end
   it 'increments likes_counter' do
     user = User.new(
-      name: 'John Doe',
+      name: 'Saeqa Sultani',
       bio: 'Developer'
     )
     user.save
