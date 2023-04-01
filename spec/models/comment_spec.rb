@@ -25,7 +25,7 @@ RSpec.describe Comment, type: :model do
   it 'increments comments_counter' do
     user = User.new(
       name: 'Saeqa Sultani',
-      bio: 'Developer',
+      bio: 'Developer'
     )
     user.save
 
@@ -47,5 +47,4 @@ RSpec.describe Comment, type: :model do
 
     expect(post.comments_counter).to_not eq(6)
   end
-
 end
