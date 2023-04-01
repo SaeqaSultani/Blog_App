@@ -16,10 +16,10 @@ RSpec.describe Like, type: :model do
       expect(id).to be == 3
     end
   end
-it 'increments likes_counter' do
+  it 'increments likes_counter' do
     user = User.new(
       name: 'John Doe',
-      bio: 'Developer',
+      bio: 'Developer'
     )
     user.save
 
