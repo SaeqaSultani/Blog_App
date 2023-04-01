@@ -61,8 +61,6 @@ After you're finished please remove all the comments and instructions!
 
 # 📖 [Blog_App] <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
 **[Blog_App]** is a blog application that allows users to create, read, update, and delete blog posts. Users can also comment on blog posts and like/dislike blog posts.
 
 
@@ -120,14 +118,13 @@ In order to run this project you need:
 - install rails
   
   ```sh
-  gem install rails
+    gem install rails
 
   ```
 - install postgresql
   
   ```sh
- sudo apt-get install postgresql postgresql-contrib libpq-dev
-
+    sudo apt-get install postgresql postgresql-contrib libpq-dev
   ```
 
 ### Setup
@@ -161,17 +158,6 @@ To run tests, run the following command:
 
 > Tests not yet implemented
 
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -234,7 +220,5 @@ I would like to thank...
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://github.com/SaeqaSultani/Blog_App/blob/data-model/MIT.md) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
