@@ -12,7 +12,6 @@ RSpec.describe 'Users', type: :request do
       get users_path
       expect(response).to render_template(:index)
     end
-
   end
 
   describe 'GET /show' do
@@ -26,6 +25,5 @@ RSpec.describe 'Users', type: :request do
       get user_path(id: 1)
       expect(response).to render_template(:show)
     end
-
   end
 end

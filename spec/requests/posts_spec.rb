@@ -10,7 +10,6 @@ RSpec.describe 'Posts', type: :request do
 
 
     it 'Should renders index template' do
-
       get user_posts_path(user_id: 1)
       expect(response).to render_template('index')
     end
@@ -27,6 +26,5 @@ RSpec.describe 'Posts', type: :request do
       get user_post_path(user_id: 1, id: 1)
       expect(response).to render_template('show')
     end
-
   end
 end
