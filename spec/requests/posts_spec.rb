@@ -8,7 +8,6 @@ RSpec.describe 'Posts', type: :request do
       expect(response.body).to include('Here is a list of posts for a given user')
     end
 
-
     it 'Should renders index template' do
       get user_posts_path(user_id: 1)
       expect(response).to render_template('index')
