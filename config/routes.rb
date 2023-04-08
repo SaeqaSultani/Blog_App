@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'like/new'
+  get 'like/create'
+  get 'comment/new'
+  get 'comment/create'
   # get 'posts/index'
   # get 'posts/show'
   # get 'users/index'
