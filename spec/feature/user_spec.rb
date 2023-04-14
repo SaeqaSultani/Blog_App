@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'UserShows', type: :system do
-          
   describe 'index page' do
     before(:example) do
-      user = User.create(name: 'John', posts_counter: 30, photo: 'https://randomuser.me/api/portraits/men/70.jpg',
-        bio: 'Teacher from Poland.')
-      user1 = User.create(name: 'Ali', posts_counter: 20, photo: 'https://randomuser.me/api/portraits/men/80.jpg',
-         bio: 'Teacher from Landan.')            
+      @user = User.create(name: 'John', posts_counter: 30, photo: 'https://randomuser.me/api/portraits/men/70.jpg',
+                          bio: 'Teacher from Poland.')
+      @new_user = User.create(name: 'Ali', posts_counter: 20, photo: 'https://randomuser.me/api/portraits/men/80.jpg',
+                              bio: 'Teacher from Landan.')
       visit users_path
     end
 
@@ -24,7 +23,7 @@ RSpec.describe 'UserShows', type: :system do
     end
 
     it 'I can see the number of posts each user has written.' do
-      User.all.each do |user|
+      User.all.each do |_user|
         expect(page).to have_content('Number of posts: 0')
       end
     end
@@ -39,5 +38,4 @@ RSpec.describe 'UserShows', type: :system do
       page.has_content?('John')
     end
   end
-
 end

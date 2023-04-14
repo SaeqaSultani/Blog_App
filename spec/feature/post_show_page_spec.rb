@@ -4,7 +4,7 @@ RSpec.describe Post, type: :system do
   user = User.create(name: 'John', posts_counter: 30, photo: 'https://randomuser.me/api/portraits/men/70.jpg',
                      bio: 'Teacher from Poland.')
   user1 = User.create(name: 'Ali', posts_counter: 20, photo: 'https://randomuser.me/api/portraits/men/80.jpg',
-                      bio: 'Teacher from Landan.')                   
+                      bio: 'Teacher from Landan.')
 
   subject do
     Post.new(author_id: user.id, title: 'First Post', text: 'My first post', comments_counter: 20, likes_counters: 30)
