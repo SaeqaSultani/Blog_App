@@ -7,7 +7,6 @@ class Post < ApplicationRecord
   # validates :likes_counters, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   # validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-
   after_save :post_counter
 
   def recent_comments
