@@ -12,8 +12,9 @@ RSpec.describe 'UserShows', type: :system do
     end
 
     it 'I can see the profile picture for each user.' do
-      visit root_path(subject)
-      page.has_css?('.img-fluid')
+      User.all.each do |user|
+        expect(page).to have_css("img[src*='#{user.photo}']")
+      end
     end
 
     it 'I can see the number of posts each user has written.' do
