@@ -3,7 +3,6 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     # @posts = @user.posts
     @posts = @user.posts.includes(:author)
-
   end
 
   def show
@@ -11,7 +10,6 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     # @comments = @post.comments
     @comments = @post.comments.includes(:post)
-
   end
 
   def new
@@ -22,17 +20,17 @@ class PostsController < ApplicationController
     @user = current_user
     @post = Post.new(author: @user, title: params[:post][:title], text: params[:post][:text])
     if @post.save
- 
+
       redirect_to user_post_path(@user, @post)
     else
       render :new, status: :unprocessable_entity
     end
   end
-  
+
   def edit
     @post = Post.find(params[:id])
   end
-  
+
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
@@ -41,15 +39,15 @@ class PostsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to user_post_path(current_user)
   end
-  
+
   private
-  
+
   def post_params
     params.require(:post).permit(:title, :text)
   end
