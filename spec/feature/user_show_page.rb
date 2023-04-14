@@ -5,7 +5,6 @@ RSpec.describe 'UserShows', type: :system do
 
   before { subject.save }
 
-
   describe 'show page' do
     it "I can see the user's profile picture." do
       expect(page).to have_css("img[src*='#{user.photo}']")
