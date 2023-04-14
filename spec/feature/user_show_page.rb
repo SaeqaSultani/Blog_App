@@ -4,6 +4,7 @@ RSpec.describe 'UserShows', type: :system do
   subject { User.new(name: 'John', posts_counter: 30, photo: 'https://randomuser.me/api/portraits/men/70.jpg', bio: 'Teacher from Poland.') }
 
   before { subject.save }
+  
 
   describe 'show page' do
     it "I can see the user's profile picture." do

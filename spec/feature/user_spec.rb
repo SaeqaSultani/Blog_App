@@ -1,14 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe 'UserShows', type: :system do
-  subject { User.new(name: 'John', posts_counter: 30, photo: 'https://randomuser.me/api/portraits/men/70.jpg', bio: 'Teacher from Poland.') }
-
-  before { subject.save }
-
+          
   describe 'index page' do
+    before(:example) do
+      user = User.create(name: 'John', posts_counter: 30, photo: 'https://randomuser.me/api/portraits/men/70.jpg',
+        bio: 'Teacher from Poland.')
+      user1 = User.create(name: 'Ali', posts_counter: 20, photo: 'https://randomuser.me/api/portraits/men/80.jpg',
+         bio: 'Teacher from Landan.')            
+      visit users_path
+    end
+
     it 'I can see the username of all other users.' do
-      visit root_path(subject)
-      page.has_content?(subject.name)
+      User.all.each do |user|
+        expect(page).to have_content(user.name)
+      end
     end
 
     it 'I can see the profile picture for each user.' do
@@ -18,8 +24,9 @@ RSpec.describe 'UserShows', type: :system do
     end
 
     it 'I can see the number of posts each user has written.' do
-      visit root_path(subject)
-      page.has_content?(subject.posts_counter)
+      User.all.each do |user|
+        expect(page).to have_content('Number of posts: 0')
+      end
     end
 
     it "When I click on a user, I am redirected to that user's show page." do
@@ -33,39 +40,4 @@ RSpec.describe 'UserShows', type: :system do
     end
   end
 
-  describe 'show page' do
-    it "I can see the user's profile picture." do
-      expect(page).to have_css("img[src*='#{user.photo}']")
-
-    end
-    it "I can see the user's username." do
-      visit user_path(subject.id)
-      page.has_content?(subject.name)
-    end
-    it 'I can see the number of posts the user has written.' do
-      visit user_path(subject.id)
-      page.has_content?(subject.posts_counter)
-    end
-    it "I can see the user's bio." do
-      visit user_path(subject.id)
-      page.has_content?(subject.bio)
-    end
-    it "I can see the user's first 3 posts." do
-      Post.create([{ author: subject, title: 'First Post', text: 'My first post' },
-                   { author: subject, title: 'Second Post', text: 'My Second post' }, { author: subject, title: 'Third Post', text: 'My Third post' }])
-      visit user_path(subject.id)
-      page.has_content?(subject.posts)
-    end
-    it "I can see a button that lets me view all of a user's posts." do
-      visit user_path(subject.id)
-      page.has_button?('See All Posts')
-    end
-    it "When I click a user's post, it redirects me to that post's show page." do
-      post = Post.create(author: subject, title: 'First Post', text: 'My first post')
-      visit user_path(subject.id)
-      click_on 'First Post'
-      visit user_post_path(subject.id, post.id)
-      page.has_content?(post.title)
-    end
-  end
 end
