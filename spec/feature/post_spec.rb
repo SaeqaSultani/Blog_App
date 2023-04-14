@@ -18,8 +18,7 @@ RSpec.describe Post, type: :system do
     end
 
     it "I can see the user's profile picture." do
-      visit user_posts_path(user.id)
-      page.has_css?('.img-fluid')
+      expect(page.find('img')['src']).to have_content user.photo
     end
 
     it 'I can see the number of posts the user has written.' do
