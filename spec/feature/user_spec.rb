@@ -35,8 +35,8 @@ RSpec.describe 'UserShows', type: :system do
 
   describe 'show page' do
     it "I can see the user's profile picture." do
-      visit user_path(subject.id)
-      page.has_css?('.img-fluid')
+      expect(page).to have_css("img[src*='#{user.photo}']")
+
     end
     it "I can see the user's username." do
       visit user_path(subject.id)
