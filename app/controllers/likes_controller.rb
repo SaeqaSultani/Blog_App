@@ -13,7 +13,6 @@ class LikesController < ApplicationController
       # redirect_to user_posts_path(current_user, @current_post)
       redirect_to user_post_path(@current_post.author_id, @current_post.id)
 
-
     else
       flash[:error] = 'Something went wrong'
       render :new, status: :unprocessable_entity
