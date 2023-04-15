@@ -9,7 +9,7 @@ class LikesController < ApplicationController
     @like.post_id = @current_post.id
     @like.author_id = current_user.id
     if @like.save
-      
+
       redirect_to user_post_path(@current_post.author_id, @current_post.id)
 
     else
