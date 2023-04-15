@@ -2,15 +2,13 @@ class PostsController < ApplicationController
   load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
-    # @posts = @user.posts
     @posts = @user.posts.includes(:author)
   end
 
   def show
     @post = Post.find(params[:id])
     @user = User.find(params[:user_id])
-    # @comments = @post.comments
-    # @comments = @post.comments.includes(:post)
+    
     @comments = @post.comments.includes(:author)
   end
 
@@ -23,7 +21,6 @@ class PostsController < ApplicationController
     @post = Post.new(author: @user, title: params[:post][:title], text: params[:post][:text])
     if @post.save
 
-      # redirect_to user_post_path(@user, @post)
       redirect_to user_posts_path(@user.id)
 
     else
