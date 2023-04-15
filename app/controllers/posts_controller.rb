@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     if @post.save
 
       # redirect_to user_post_path(@user, @post)
-      redirect_to user_post_path(@user.id)
+      redirect_to user_posts_path(@user.id)
 
     else
       render :new, status: :unprocessable_entity
