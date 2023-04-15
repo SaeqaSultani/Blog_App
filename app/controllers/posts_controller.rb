@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
     # @posts = @user.posts
@@ -45,8 +46,13 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    @post.likes.destroy_all
+    @post.comments.destroy_all
     @post.destroy
-    redirect_to user_post_path(current_user)
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Post Deleted successfully.' }
+      format.json { head :no_content }
+    end
   end
 
   private

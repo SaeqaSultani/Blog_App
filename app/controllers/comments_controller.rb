@@ -1,22 +1,29 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def new
     @comments = Comment.new
   end
 
   def create
-    @current_post = Post.find(params[:post_id])
-    @comments = @current_post.comments.new(comment_params)
-    @comments.post_id = @current_post.id
-    @comments.author_id = current_user.id
-    if @comments.save
-      # flash[:success] = 'New comment saved successfully'
-      # redirect_to user_posts_path(current_user, @current_post)
-      redirect_to user_post_path(@current_post.author_id, @current_post.id), notice: 'New comment saved successfully'
+    @comment = Comment.new(comment_params)
+    @comment.author = current_user
+    @comment.post = Post.find(params[:post_id])
+    if @comment.save
+      redirect_to user_post_path(author_id: params[:author_id], id: params[:post_id])
     else
-      # flash[:error] = 'Something went wrong'
-      # render :new, status: :unprocessable_entity
-      render :new, status: :unprocessable_entity, alert: 'Something went wrong'
+      flash[:alert] = 'Error occur during add Comment!'
+      render :new, status: :unprocessable_entity
+    end
+  end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+    @user = @post.author
+    @comment.destroy
+    respond_to do |format|
+      format.html { redirect_to user_post_path(@user, @post), notice: 'Comment deleted successfully .' }
+      format.json { head :no_content }
     end
   end
 
