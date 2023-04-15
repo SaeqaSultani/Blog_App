@@ -1,0 +1,11 @@
+GET http://localhost:3000/api/v1/posts/1/comments
+##
+POST http://localhost:3000/api/v1/posts/1
+Content-Type: application/json
+
+{
+  "data": {
+    "title": "A New Post",
+    "text": "This text for New Post"
+  }
+}
