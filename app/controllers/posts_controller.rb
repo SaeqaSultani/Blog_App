@@ -9,7 +9,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = User.find(params[:user_id])
     # @comments = @post.comments
-    @comments = @post.comments.includes(:post)
+    # @comments = @post.comments.includes(:post)
+    @comments = @post.comments.includes(:author)
   end
 
   def new
@@ -21,7 +22,9 @@ class PostsController < ApplicationController
     @post = Post.new(author: @user, title: params[:post][:title], text: params[:post][:text])
     if @post.save
 
-      redirect_to user_post_path(@user, @post)
+      # redirect_to user_post_path(@user, @post)
+      redirect_to user_post_path(@user.id)
+
     else
       render :new, status: :unprocessable_entity
     end
