@@ -199,9 +199,8 @@ Feel free to check the [issues page](https://github.com/SaeqaSultani/Blog_App/is
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
 
-If you like this project...
+If you like this project, please leave a ⭐️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -209,9 +208,9 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
 
-I would like to thank...
+We would like to thank Microverse for providing the reading materials that aided me during the project development
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
