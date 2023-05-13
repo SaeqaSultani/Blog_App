@@ -45,7 +45,7 @@ RSpec.describe Post, type: :model do
     expect(subject).to_not be_valid
   end
 
-  describe 'post_counter' do
+  describe 'posts_counter' do
     it 'increments the author posts_counter by 0' do
       user = User.create(name: 'User 1', posts_counter: 0)
       Post.create(title: 'Post 1', author_id: user, comments_counter: 0, likes_counters: 0)
