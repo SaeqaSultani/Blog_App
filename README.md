@@ -61,8 +61,6 @@ After you're finished please remove all the comments and instructions!
 
 **[Blog_App]** is a blog application that allows users to create, read, update, and delete blog posts. Users can also comment on blog posts and like/dislike blog posts.
 
-
-
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
