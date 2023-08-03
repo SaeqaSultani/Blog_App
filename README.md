@@ -18,7 +18,6 @@ REQUIRED SECTIONS:
 - Show your support
 - Acknowledgements
 - License
-
 OPTIONAL SECTIONS:
 - FAQ
 
